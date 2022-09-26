@@ -7,31 +7,39 @@
     tools:context=".MainActivity2">
 
 
-
-    <Button
-        android:id="@+id/D"
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:text="Nothing is Pressed At the moment..."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.705" />
+
+    <Button
+        android:id="@+id/buttonD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="415dp"
         android:layout_marginEnd="285dp"
         android:layout_marginBottom="268dp"
-        android:onClick="D"
-        android:text="Button"
+        android:text="Button D"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/E"
+        android:id="@+id/buttonE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="154dp"
         android:layout_marginTop="415dp"
         android:layout_marginEnd="163dp"
         android:layout_marginBottom="268dp"
-        android:onClick="E"
         android:text="Button E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,14 +47,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/F"
+        android:id="@+id/buttonF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="278dp"
         android:layout_marginTop="415dp"
         android:layout_marginEnd="39dp"
         android:layout_marginBottom="268dp"
-        android:onClick="F"
         android:text="Button F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,14 +62,13 @@
 
 
     <Button
-        android:id="@+id/C"
+        android:id="@+id/buttonC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="278dp"
         android:layout_marginTop="330dp"
         android:layout_marginEnd="39dp"
         android:layout_marginBottom="353dp"
-        android:onClick="C"
         android:text="Button C"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,51 +76,32 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/B"
+        android:id="@+id/buttonB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="154dp"
         android:layout_marginTop="330dp"
         android:layout_marginEnd="163dp"
         android:layout_marginBottom="353dp"
-        android:onClick="B"
         android:text="Button B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <Button
-        android:id="@+id/A"
+        android:id="@+id/buttonA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="330dp"
         android:layout_marginEnd="285dp"
         android:layout_marginBottom="353dp"
-        android:onClick="A"
         android:text="Button A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-
-
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="82dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="173dp"
-        android:layout_marginTop="714dp"
-        android:layout_marginEnd="156dp"
-        android:layout_marginBottom="133dp"
-        android:text="Pressed:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
