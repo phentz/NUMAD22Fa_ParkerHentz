@@ -12,6 +12,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     Button click_button;
+    Button aboutme;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                startActivity(intent);
+                finish();
+
+                Intent intent2 = new Intent(MainActivity.this, aboutmepage.class);
                 startActivity(intent);
                 finish();
             }
