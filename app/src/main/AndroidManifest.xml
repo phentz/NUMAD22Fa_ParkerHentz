@@ -15,12 +15,15 @@
         tools:targetApi="31">
         <activity
             android:name=".linkCollector"
+            android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".aboutmepage"
+            android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity2"
+            android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

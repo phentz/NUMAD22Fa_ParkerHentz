@@ -10,6 +10,8 @@ public class aboutmepage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aboutmepage);
+        getSupportActionBar().setTitle("About Me");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 }

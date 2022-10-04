@@ -6,9 +6,48 @@
     android:layout_height="match_parent"
     tools:context=".linkCollector">
 
+
+    <TextView
+        android:id="@+id/simpleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="86dp"
+        android:layout_marginEnd="213dp"
+        android:layout_marginBottom="611dp"
+        android:text="Before Clicking"
+        android:textColor="#f00"
+        android:textSize="25sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnChangeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="230dp"
+        android:layout_marginTop="79dp"
+        android:layout_marginEnd="89dp"
+        android:layout_marginBottom="602dp"
+        android:background="#f00"
+        android:padding="10dp"
+        android:text="Add Link"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="303dp"
-        android:layout_height="454dp"
+        android:id="@+id/RecyclerView"
+        android:layout_width="314dp"
+        android:layout_height="500dp"
         android:layout_marginStart="91dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="91dp"
@@ -24,16 +63,33 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="305dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="110dp"
-        android:layout_marginBottom="557dp"
+        android:layout_width="185dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="113dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="114dp"
+        android:layout_marginBottom="637dp"
         android:text="This is a page is full of links"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="135dp"
+        android:layout_marginTop="645dp"
+        android:layout_marginEnd="136dp"
+        android:layout_marginBottom="38dp"
+        android:text="Back Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
