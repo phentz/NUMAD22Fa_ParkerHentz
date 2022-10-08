@@ -3,28 +3,25 @@ package edu.northeastern.numad22fa_parkerhentz;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-
 
 public class MainActivity extends AppCompatActivity {
     Button click_button;
     Button aboutme;
-    Button linkCollector;
+    Button linkCollectorButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        linkCollectorButton = new Button(this);
         click_button = findViewById(R.id.Button_suite);
+        linkCollectorButton = findViewById(R.id.linkCollector);
         click_button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                Intent intent = new Intent(MainActivity.this, clickyclicky.class);
                 startActivity(intent);
                 finish();
             }
@@ -44,15 +41,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        linkCollector = findViewById(R.id.linkCollector);
-        linkCollector.setOnClickListener(new View.OnClickListener() {
-
+        linkCollectorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, linkCollector.class);
-                startActivity(intent);
-                finish();
+                Intent intent = new Intent(view.getContext(), LinkCollector.class);
+                view.getContext().startActivity(intent);
             }
         });
 

@@ -14,15 +14,17 @@
         android:theme="@style/Theme.NUMAD22Fa_ParkerHentz"
         tools:targetApi="31">
         <activity
-            android:name=".linkCollector"
-            android:parentActivityName=".MainActivity"
-            android:exported="false" />
+            android:name=".LinkCollector"
+            android:label="Link Collector"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:parentActivityName=".MainActivity">
+        </activity>
         <activity
             android:name=".aboutmepage"
             android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity2"
+            android:name=".clickyclicky"
             android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity

@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity2 extends AppCompatActivity {
+public class clickyclicky extends AppCompatActivity {
 
     TextView OurTextA;
     TextView OurTextB;
