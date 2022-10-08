@@ -10,6 +10,7 @@ public class MainActivity extends AppCompatActivity {
     Button click_button;
     Button aboutme;
     Button linkCollectorButton;
+    Button findPrimesButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         linkCollectorButton = new Button(this);
         click_button = findViewById(R.id.Button_suite);
         linkCollectorButton = findViewById(R.id.linkCollector);
+        findPrimesButton = findViewById(R.id.findPrimes);
         click_button.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -49,6 +51,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        findPrimesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), findPrimes.class);
+                view.getContext().startActivity(intent);
+            }
+        });
     }
 
 
