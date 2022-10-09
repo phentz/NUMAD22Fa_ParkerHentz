@@ -16,7 +16,7 @@ public class findPrimes extends AppCompatActivity {
     Button button_starter;
     Button button_ender;
     int valueCheck = 3;
-    int valuePast = valueCheck;
+    int LastfoundPrime = valueCheck;
 
 
     @Override
@@ -31,12 +31,12 @@ public class findPrimes extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         finish();
                     }
-
                 })
                 .setNegativeButton("No", null)
                 .show();
     }
 
+    // here we create the page for the app
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,18 +46,16 @@ public class findPrimes extends AppCompatActivity {
         button_starter = findViewById(R.id.button_start);
 
         button_starter.setOnClickListener(new View.OnClickListener() {
-            // Cant be here cant be placed inside the clas
-            // DifferentThread differentThread = new DifferentThread();
-            // differentThread.start();
+           // first thread start from the thread class
             @Override
             public void onClick(View view) {
                 DifferentThread differentThread = new DifferentThread();
                 differentThread.start();
                 // value2 = here we need
-                statusText.setText("Current prime check: "+ valueCheck);
+                //statusText.setText("Current prime check: "+ valueCheck);
             }
         });
-
+        // class to interupt the thread
         button_ender.setOnClickListener(new View.OnClickListener() {
             // Cant be here cant be placed inside the clas
             // DifferentThread differentThread = new DifferentThread();
@@ -67,7 +65,9 @@ public class findPrimes extends AppCompatActivity {
                 DifferentThread differentThread = new DifferentThread();
                 differentThread.interrupt();
                 // value2 = here we need
-                statusText.setText("ended process: "+ valueCheck);
+
+                // if(valueCheck
+                // HERE IS OK FOR THE TEXT TO EDIT
             }
         });
     }
@@ -79,38 +79,34 @@ public class findPrimes extends AppCompatActivity {
         differentThread.start();
     }
 
-
-    //Class which extends the Thread class.
+    //Class which extends the Thread class
     class DifferentThread extends Thread {
         @Override
         public void run() {
             for (int i = valueCheck; i <= 1000; i = i + 2) {
-                checkPrime(i);
-                System.out.print(i + "here");
+                if (checkPrime(i)) {
+                    LastfoundPrime = i;
+                }
+                int finalI = i;
 
-                //statusText.setText("checking Current Prime " + i);
+                // variable needs to be thread safe
+                // look up^ copy to
+                // syconisity different value
+                runOnUiThread(() -> {
+                    //System.out.print(valueCheck + "here");
+                    // never gets changed
+                    statusText.setText("started process checking: " + finalI +
+                            "  Last Prime :" + LastfoundPrime );
+
+
+                });
                 try {
-                    Thread.sleep(1);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
 
-
             }
-            //final int finalI = i;
-            //The handler changes the TextView running in the UI thread.
-//            textHandler.post(new Runnable() {
-//                @SuppressLint("SetTextI18n")
-//                @Override
-//                public void run() {
-//                    statusText.setText("Running on a new Thread (Thread class): " + i);
-//                    if (finalI == 10) {
-//                        statusText.setText("");
-//                    }
-//                }
-//            });
-            //Log.d(TAG, "Running on a different thread using Thread class: " + i);
-
         }
     }
 
@@ -129,7 +125,7 @@ public class findPrimes extends AppCompatActivity {
                 }
             }
             //System.out.println(n + " is prime number");
-            return flag == 0;
+            return true;
 
         }
     }
