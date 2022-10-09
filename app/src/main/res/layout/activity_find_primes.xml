@@ -38,15 +38,27 @@
         android:id="@+id/button_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="207dp"
+        android:layout_marginEnd="141dp"
+        android:layout_marginBottom="476dp"
         android:text="Find Primes"
-        tools:layout_editor_absoluteX="140dp"
-        tools:layout_editor_absoluteY="207dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button2endSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="274dp"
+        android:layout_marginEnd="113dp"
+        android:layout_marginBottom="409dp"
         android:text="Terminate Search"
-        tools:layout_editor_absoluteX="112dp"
-        tools:layout_editor_absoluteY="274dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

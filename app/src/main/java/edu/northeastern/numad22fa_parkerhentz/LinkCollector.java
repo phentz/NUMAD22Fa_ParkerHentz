@@ -21,7 +21,7 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.ArrayList;
 
 public class LinkCollector extends AppCompatActivity {
-    private ArrayList<CardLink> inputLinkList = new ArrayList<>();
+    private final ArrayList<CardLink> inputLinkList = new ArrayList<>();
     private RecyclerView recycleView;
     private RecycleAdapter recycleAdapter;
     private RecyclerView.LayoutManager recycleLayoutManger;
