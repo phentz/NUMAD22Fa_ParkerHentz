@@ -8,13 +8,14 @@
 
     <Switch
         android:id="@+id/switch1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginTop="352dp"
-        android:layout_marginEnd="162dp"
-        android:layout_marginBottom="352dp"
-        android:text="Switch"
+        android:layout_width="88dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="165dp"
+        android:layout_marginTop="287dp"
+        android:layout_marginEnd="158dp"
+        android:layout_marginBottom="396dp"
+        android:minHeight="48dp"
+        android:text="threadcheck"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,10 +25,10 @@
         android:id="@+id/statusText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="138dp"
-        android:layout_marginEnd="177dp"
-        android:layout_marginBottom="574dp"
+        android:layout_marginStart="157dp"
+        android:layout_marginTop="387dp"
+        android:layout_marginEnd="158dp"
+        android:layout_marginBottom="325dp"
         android:text="not running yet "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,26 +40,37 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="140dp"
-        android:layout_marginTop="207dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="141dp"
-        android:layout_marginBottom="476dp"
+        android:layout_marginBottom="312dp"
         android:text="Find Primes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.354" />
 
     <Button
         android:id="@+id/button2endSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="112dp"
-        android:layout_marginTop="274dp"
+        android:layout_marginTop="240dp"
         android:layout_marginEnd="113dp"
-        android:layout_marginBottom="409dp"
+        android:layout_marginBottom="483dp"
         android:text="Terminate Search"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.447" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
