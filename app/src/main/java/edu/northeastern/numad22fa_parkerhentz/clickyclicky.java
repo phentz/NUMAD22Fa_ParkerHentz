@@ -61,6 +61,7 @@ public class clickyclicky extends AppCompatActivity {
                 // What we want to display when button is clicked
 
                 OurTextB.setText("Pressed : B");
+                // just a comment
             }
         });
 
