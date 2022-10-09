@@ -4,17 +4,17 @@ plugins {
 
 android {
     signingConfigs {
-        debug {
-            storePassword '1171011'
-            keyPassword '1171011'
-            keyAlias 'keyParker'
-            storeFile file('release')
-        }
         release {
             storeFile file('/Users/parkerhentz/Desktop/keyforMAD')
             storePassword '111111'
             keyPassword '111111'
             keyAlias 'key0'
+        }
+        debug {
+            storeFile file('/Users/parkerhentz/Desktop/keystoreinfo/keysforMAD2')
+            storePassword '123456'
+            keyAlias 'key1'
+            keyPassword '123456'
         }
     }
     compileSdk 32
@@ -27,7 +27,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        signingConfig signingConfigs.release
+        signingConfig signingConfigs.debug
     }
 
     buildTypes {
