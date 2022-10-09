@@ -16,11 +16,12 @@
         <activity
             android:name=".findPrimes"
             android:exported="false" />
+
         <activity
             android:name=".LinkCollector"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="Link Collector"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".aboutmepage"
             android:exported="false"
