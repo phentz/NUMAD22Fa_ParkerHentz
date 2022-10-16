@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Looper;
@@ -26,7 +28,26 @@ public class location_activity extends AppCompatActivity {
     private static final int REQUEST_CODE_LOCATION_PERMISSION = 1;
     TextView latitudeTextView;
     TextView longitTextView;
+    TextView totalDistance;
+    double last_long = 0;
+    double last_lat = 0;
+    double distance;
 
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Closing Activity")
+                .setMessage("Are you sure you want to close this activity?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                })
+                .setNegativeButton("No", null)
+                .show();
+    }
     // here is where we want to initilize
 
     @Override
@@ -36,7 +57,7 @@ public class location_activity extends AppCompatActivity {
 
         longitTextView = findViewById(R.id.lonTextView);
         latitudeTextView = findViewById(R.id.latTextView);
-
+        totalDistance = findViewById(R.id.total_distanceText);
 
         findViewById(R.id.buttonGetCurrentLocation).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +75,14 @@ public class location_activity extends AppCompatActivity {
                 }
             }
         });
+
+        findViewById(R.id.buttonResetTotalDist).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                distance = 000000;
+            }
+        });
+
     }
 
     @Override
@@ -71,7 +100,7 @@ public class location_activity extends AppCompatActivity {
     @SuppressLint("ObsoleteSdkInt")
     private void getCurrentLocation() {
         LocationRequest locationRequest = LocationRequest.create();
-        locationRequest.setInterval(10000);
+        locationRequest.setInterval(1000); // here would allow me to ping the cell phone 100 unites
         locationRequest.setFastestInterval(3000);
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         LocationServices.getFusedLocationProviderClient(location_activity.this).requestLocationUpdates(locationRequest, new LocationCallback() {
@@ -81,114 +110,35 @@ public class location_activity extends AppCompatActivity {
                 if (locationResult != null && locationResult.getLocations().size() > 0) {
                     int latestLocationIndex = locationResult.getLocations().size() - 1;
                     double latitude = locationResult.getLocations().get(latestLocationIndex).getLatitude();
-                    double longitude = locationResult.getLocations().get(latestLocationIndex).getLatitude();
+                    double longitude = locationResult.getLocations().get(latestLocationIndex).getLongitude();
+                    distance += calculateDistance(last_lat,last_long,latitude,longitude);
+                    //distance += 120;
+                    last_lat = latitude;
+                    last_long = longitude;
+
+                    System.out.println("testing distance :" + distance);
                     latitudeTextView.setText(String.format("Latitude: %s\n,", latitude));
                     longitTextView.setText(String.format("Longitude: %s\n,", longitude));
+                    totalDistance.setText(String.format("Total distance: %s\n", distance));
                 }
             }
         }, Looper.getMainLooper());
-        //LocationServices.getFusedLocationProviderClient(Location_activity.this).requestLocationUpdates(locationRequest, new LocationCallback(){
+    }
+    public final static double AVERAGE_RADIUS_OF_EARTH = 6371;
+    public int calculateDistance(double userLat, double userLng, double venueLat, double venueLng) {
 
-//
-//
-//    @SuppressLint("MissingPermission")
-//    private void getLastLocation() {
-//        // check if permissions are given
-//        if (checkPermissions()) {
-//
-//            // check if location is enabled
-//            if (isLocationEnabled()) {
-//
-//                // getting last
-//                // location from
-//                // FusedLocationClient
-//                // object
-//                Location_activity mFusedLocationClient = new FusedLocationProviderClient();
-//                mFusedLocationClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Location> task) {
-//                        Location location = task.getResult();
-//                        if (location == null) {
-//                            requestNewLocationData();
-//                        } else {
-//                            latitudeTextView.setText(location.getLatitude() + "");
-//                            longitTextView.setText(location.getLongitude() + "");
-//                        }
-//                    }
-//                });
-//            } else {
-//                Toast.makeText(this, "Please turn on" + " your location...", Toast.LENGTH_LONG).show();
-//                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-//                startActivity(intent);
-//            }
-//        } else {
-//            // if permissions aren't available,
-//            // request for permissions
-//            requestPermissions();
-//        }
-//    }
-//
-//    @SuppressLint("MissingPermission")
-//    private void requestNewLocationData() {
-//
-//        // Initializing LocationRequest
-//        // object with appropriate methods
-//        LocationRequest mLocationRequest = new LocationRequest();
-//        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-//        mLocationRequest.setInterval(5);
-//        mLocationRequest.setFastestInterval(0);
-//        mLocationRequest.setNumUpdates(1);
-//
-//        // setting LocationRequest
-//        // on FusedLocationClient
-//        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-//        mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.myLooper());
-//    }
-//
-//    private LocationCallback mLocationCallback = new LocationCallback() {
-//
-//        @Override
-//        public void onLocationResult(LocationResult locationResult) {
-//            Location mLastLocation = locationResult.getLastLocation();
-//            latitudeTextView.setText("Latitude: " + mLastLocation.getLatitude() + "");
-//            longitTextView.setText("Longitude: " + mLastLocation.getLongitude() + "");
-//        }
-//    };
-//
-//    // method to check for permissions
-//    private boolean checkPermissions() {
-//        return ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
-//
-//        // If we want background location
-//        // on Android 10.0 and higher,
-//        // use:
-//        // ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) == PackageManager.PERMISSION_GRANTED
-//    }
-//
-//    // method to request for permissions
-//    private void requestPermissions() {
-//        ActivityCompat.requestPermissions(this, new String[]{
-//                Manifest.permission.ACCESS_COARSE_LOCATION,
-//                Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_ID);
-//    }
-//
-//    // method to check
-//    // if location is enabled
-//    private boolean isLocationEnabled() {
-//        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-//        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-//    }
-//
-//    // If everything is alright then
-//
-//
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        if (checkPermissions()) {
-//            getLastLocation();
-//        }
+        double latDistance = Math.toRadians(userLat - venueLat);
+        double lngDistance = Math.toRadians(userLng - venueLng);
 
+        double a = (Math.sin(latDistance / 2) * Math.sin(latDistance / 2)) +
+                (Math.cos(Math.toRadians(userLat))) *
+                        (Math.cos(Math.toRadians(venueLat))) *
+                        (Math.sin(lngDistance / 2)) *
+                        (Math.sin(lngDistance / 2));
+
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+        return (int) (Math.round(AVERAGE_RADIUS_OF_EARTH * c));
 
     }
-}
+    }
