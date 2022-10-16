@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Location_activity">
+    tools:context=".location_activity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,11 +40,12 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
             android:text="Latitude:" />
-    </LinearLayout>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="120dp" />
+        <Button
+            android:id="@+id/buttonGetCurrentLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Get Location" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
